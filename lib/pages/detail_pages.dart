@@ -38,6 +38,7 @@ class DetailPage extends StatelessWidget {
                 ],
               ),
             ),
+            // if we make a ListView , it wil make the btn_back cant work properly
             ListView()
           ],
         ),
