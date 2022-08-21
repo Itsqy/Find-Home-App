@@ -168,6 +168,65 @@ class DetailPage extends StatelessWidget {
                           ],
                         ),
                       ),
+                      // NOTE : Photos
+
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: edge),
+                        child: Text(
+                          'Photos',
+                          style: regulerStyle.copyWith(fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Container(
+                        height: 88,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Image.asset(
+                              'assets/picphoto_1.png',
+                              height: 110,
+                              width: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(
+                              width: 18,
+                            ),
+                            Image.asset(
+                              'assets/picphoto_2.png',
+                              height: 110,
+                              width: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(
+                              width: 18,
+                            ),
+                            Image.asset(
+                              'assets/picphoto_1.png',
+                              height: 110,
+                              width: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(
+                              width: 18,
+                            ),
+                            Image.asset(
+                              'assets/picphoto_1.png',
+                              height: 110,
+                              width: 88,
+                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(
+                              width: 18,
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
