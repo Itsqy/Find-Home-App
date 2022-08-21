@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_flutter/models/facility.dart';
+import 'package:new_flutter/widgets/facility_item.dart';
 import 'package:new_flutter/theme.dart';
 
 class DetailPage extends StatelessWidget {
@@ -54,6 +56,7 @@ class DetailPage extends StatelessWidget {
                       ),
                       color: whiteColor),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
                         height: 30,
@@ -126,7 +129,45 @@ class DetailPage extends StatelessWidget {
                             )
                           ],
                         ),
-                      )
+                      ),
+                      // NOTE : Main Facilities
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: edge),
+                        child: Text(
+                          'Main Facilities',
+                          style: regulerStyle.copyWith(fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: edge),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            FacilityItem(Facility(
+                                id: 1,
+                                item: 2,
+                                imageUrl: 'assets/kitchen.png',
+                                name: 'kitchen')),
+                            FacilityItem(Facility(
+                                id: 2,
+                                item: 4,
+                                imageUrl: 'assets/bedroom.png',
+                                name: 'bedroom')),
+                            FacilityItem(Facility(
+                                id: 3,
+                                item: 3,
+                                imageUrl: 'assets/cupboard.png',
+                                name: 'cupboard')),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
