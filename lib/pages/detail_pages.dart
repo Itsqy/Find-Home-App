@@ -192,7 +192,6 @@ class DetailPage extends StatelessWidget {
                               'assets/picphoto_1.png',
                               height: 110,
                               width: 88,
-                              fit: BoxFit.cover,
                             ),
                             SizedBox(
                               width: 18,
@@ -201,7 +200,14 @@ class DetailPage extends StatelessWidget {
                               'assets/picphoto_2.png',
                               height: 110,
                               width: 88,
-                              fit: BoxFit.cover,
+                            ),
+                            SizedBox(
+                              width: 18,
+                            ),
+                            Image.asset(
+                              'assets/picphoto_3.png',
+                              height: 110,
+                              width: 88,
                             ),
                             SizedBox(
                               width: 18,
@@ -210,16 +216,6 @@ class DetailPage extends StatelessWidget {
                               'assets/picphoto_1.png',
                               height: 110,
                               width: 88,
-                              fit: BoxFit.cover,
-                            ),
-                            SizedBox(
-                              width: 18,
-                            ),
-                            Image.asset(
-                              'assets/picphoto_1.png',
-                              height: 110,
-                              width: 88,
-                              fit: BoxFit.cover,
                             ),
                             SizedBox(
                               width: 18,
