@@ -16,6 +16,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         bottom: false,
         child: ListView(
@@ -203,9 +204,6 @@ class HomePage extends StatelessWidget {
       floatingActionButton: Container(
         height: 65,
         width: MediaQuery.of(context).size.width - (2 * edge),
-        margin: EdgeInsets.symmetric(
-          horizontal: edge,
-        ),
         decoration: BoxDecoration(
           color: Color.fromARGB(255, 174, 195, 216),
           borderRadius: BorderRadius.circular(23),
