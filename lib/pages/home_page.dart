@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:new_flutter/models/city.dart';
 import 'package:new_flutter/models/space.dart';
 import 'package:new_flutter/models/tips.dart';
+import 'package:new_flutter/providers/space_provider.dart';
 import 'package:new_flutter/theme.dart';
 import 'package:new_flutter/widgets/bottom_navbar_item.dart';
 import 'package:new_flutter/widgets/city_card.dart';
 import 'package:new_flutter/widgets/space_card.dart';
 import 'package:new_flutter/widgets/tips_card.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
-  // final City city;
-
-  // CityCard(this.city);
-
   @override
   Widget build(BuildContext context) {
+    var spacProvider = Provider.of<SpaceProvider>(context);
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
@@ -110,51 +110,29 @@ class HomePage extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: edge),
-              child: Column(
-                children: [
-                  SpaceCard(
-                    Space(
-                      id: 1,
-                      name: 'Hottel Swiz',
-                      imageUrl: 'assets/space1.png',
-                      price: 32,
-                      city: 'bekasi',
-                      country: 'belanda',
-                      rating: 5,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  SpaceCard(
-                    Space(
-                      id: 1,
-                      name: 'Bobobox',
-                      imageUrl: 'assets/space2.png',
-                      price: 23,
-                      city: 'bogor',
-                      country: 'Malaysia',
-                      rating: 3,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  SpaceCard(
-                    Space(
-                      id: 1,
-                      name: 'Hottel oyyo',
-                      imageUrl: 'assets/space3.png',
-                      price: 23,
-                      city: 'jakarta',
-                      country: 'Indonesia',
-                      rating: 4,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                ],
+              child: FutureBuilder(
+                future: spacProvider.getRecomendedSpace(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<Space> data = snapshot.data as List<Space>;
+
+                    int index = 0;
+
+                    return Column(
+                      children: data.map((item) {
+                        index++;
+                        return Container(
+                          margin: EdgeInsets.only(top: index == 1 ? 0 : 30),
+                          child: SpaceCard(item),
+                        );
+                      }).toList(),
+                    );
+                  } //if.hasdata
+//this is for els
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
               ),
             ),
             SizedBox(
